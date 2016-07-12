@@ -6,7 +6,7 @@ abstract class C_Base extends C_Controller{
     protected $content;
 
     public function Before(){
-        session_start();
+        //session_start();
         $this->title = 'Blog';
         $this->content = 'MyContent';
     }

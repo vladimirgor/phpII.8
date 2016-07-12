@@ -11,9 +11,7 @@ class C_Article extends C_Base {
 
 // selecting all records from the data base
         $articles = M_Data::articles_all();
-        $mUsers = M_Users::Instance();// connection to DB
-        // by calling M_Mysql::GetInstance in the __construct M_Users
-
+        $mUsers = M_Users::Instance();
         $user = $mUsers->Get();
 
         $this->content = $this->Template('theme/view_all.php',
@@ -38,9 +36,7 @@ class C_Article extends C_Base {
 // article Edit 
     protected  function Action_edit (){
         $this->title .= "::Edit";
-        $mUsers = M_Users::Instance();// connection to DB
-        // by calling M_Mysql::GetInstance in the __construct M_Users
-
+        $mUsers = M_Users::Instance();
         $user = $mUsers->Get();
         
 // Is it allowed to user to edit articles?
@@ -74,9 +70,7 @@ class C_Article extends C_Base {
 // article Delete 
     protected  function Action_delete (){
         $this->title .= "::Delete";
-         $mUsers = M_Users::Instance();// connection to DB
-        // by calling M_Mysql::GetInstance in the __construct M_Users
-
+        $mUsers = M_Users::Instance();
         $user = $mUsers->Get();
 // Is it allowed to user to delete articles?
         if ( $user == null || !$mUsers->Can('DELETE_ARTICLE',$user['id_role']) )
@@ -97,9 +91,7 @@ class C_Article extends C_Base {
 // article Add
     protected  function Action_add (){
         $this->title .= "::Add";
-        $mUsers = M_Users::Instance();// connection to DB
-        // by calling M_Mysql::GetInstance in the __construct M_Users
-
+        $mUsers = M_Users::Instance();
         $user = $mUsers->Get();
         // Может ли пользователь добавлять статьи?
         if ( $user == null || !$mUsers->Can('ADD_ARTICLE',$user['id_role']))
@@ -127,9 +119,7 @@ class C_Article extends C_Base {
 // article Comment
     protected  function Action_Comment (){
         $this->title .= "::Comment";
-        $mUsers = M_Users::Instance();// connection to DB
-        // by calling M_Mysql::GetInstance in the __construct M_Users
-
+        $mUsers = M_Users::Instance();
         $user = $mUsers->Get();
         $id_article = $_GET['id'];
 
